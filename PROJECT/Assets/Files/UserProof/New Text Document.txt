@@ -1,0 +1,128 @@
+UPDATE stock
+DELETE FROM stock,
+WHERE Quantity=0;
+
+
+create table book
+(bookid integer primary key,
+bookname varchar(20),
+authorname varchar(25),
+publishername varchar(25),
+price decimal(10,2));
+
+insert into book
+values(100,'helen keller','suresh','ncert',500),
+(101,'MATHS12th','soman','scert',1000),
+(102,'Tangled','Stephen','avg',999),
+(103,'Chemistry12th','rajesh','ncert',2000),
+(104,'three men in a boat','jerome k jerome','JK',500);
+
+update book
+set price=price-(price*0.1)
+where publisher='scert';
+
+
+select *
+from book
+where price=(select max(price)
+             from book);
+select publishername,count(publishername)
+from book
+group by publishername;
+
+
+update stock
+delete from stock
+where quantity=0;
+
+update stock
+set unitprice=unitprice+unitprice*(10/100);
+
+select *
+from stock
+order by unitprice;
+
+select *
+from book
+order by authorname;
+
+update book
+set price=price-(price*0.1)
+where publishername="scert";
+
+select *
+from book
+where price=(select Max(price)
+             from book);
+
+select publishername,count(*)
+from book
+group by publishername; 
+
+create table student
+(rollno int primary key,
+name varchar(25),
+batch varchar(15),
+mark1 int,
+mark2 int,
+mark3 int,
+total int);
+
+select *
+from student;
+
+insert into student
+values(23,'joseph','cs',45,60,50,0),
+(24,'asd','science',60,60,60,0),
+(25,'sswwe','cs',50,45,55,0),
+(26,'scmqsk','science',50,45,25,0),
+(27,'dgvk','cs',30,30,0,0);
+
+update student
+set total=mark1+mark2+mark3;
+
+select *
+from student
+where batch='science';
+
+select name,total
+from student
+where total<90;
+
+delete from student
+where mark3<30;
+
+
+CREATE TABLE RESULT
+(name varchar(20),
+dob date,
+rollno int);
+
+ALTER TABLE RESULT
+MODIFY dob date;
+
+desc RESULT;
+
+ALTER TABLE RESULT
+ADD total int
+AFTER rollno;
+
+select *
+from RESULT;
+
+INSERT INTO RESULT
+VALUES('ALBY BENNY','2002/08/5',7164797,497),
+('JOSEPH SABU','2002/05/21',7164798,498),
+('SANJAY BENOY','2001/09/11',7164799,499);
+
+
+DELETE FROM RESULT
+WHERE rollno=7164799;
+
+hp pavillion core i5 11th gen dk2100TX /ryzen 5 5600h EC2008AX
+lenovo ideapad 3 core i5 11th gen
+asus tuf f15 core i5 10th
+
+
+
+
